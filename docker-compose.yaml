@@ -7,4 +7,4 @@ services:
       dockerfile: Dockerfile # name of dockerfile 
     container_name: chandu-web-d1 
     ports:
-      - 1234:80 # left side port b/w 1024 - 5000 
+      - 1223:80 # left side port b/w 1024 - 5000 
