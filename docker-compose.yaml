@@ -5,6 +5,6 @@ services:
     build:
       context: . # location of dockerfile 
       dockerfile: Dockerfile # name of dockerfile 
-    container_name: chandu-web-c1 
+    container_name: chandu-web-c2 
     ports:
-      - 1342:80 # left side port b/w 1024 - 5000 
+      - 1322:80 # left side port b/w 1024 - 5000 
