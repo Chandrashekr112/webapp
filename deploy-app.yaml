@@ -1,1 +1,59 @@
+ # creating namespace 
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: chandu-jk-deploy # change this part 
+spec: {}
+status: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: chandu-webapp
+  name: chandu-webapp # name of deployment 
+  namespace: chandu-jk-deploy # add namespace 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chandu-webapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels: # check label of pods
+        app: chandu-webapp
+    spec:
+      containers:
+      - image: chandrashekar121/chandu-cloud4c-app:version24 # change docker with your image 
+        name: chandu-cloud4c-app
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
+
+# creating nodeport service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: chandulb1
+  name: chandulb1 # change name 
+  namespace: chandu-jk-deploy # add this 
+spec:
+  ports:
+  - name: 1234-80
+    port: 1234
+    protocol: TCP
+    targetPort: 80
+  selector: # selector also 
+   app: chandu-webapp # label 
+  type: NodePort
+status:
+  loadBalancer: {}
 
