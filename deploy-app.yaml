@@ -28,7 +28,7 @@ spec:
         app: chandu-webapp
     spec:
       containers:
-      - image: chandrashekar121/chandu-cloud4c-app:version24 # change docker with your image 
+      - image: chandrashekar121/chandu-cloud4c-app:version29 # change docker with your image 
         name: chandu-cloud4c-app
         ports:
         - containerPort: 80
